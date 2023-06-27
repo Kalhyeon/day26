@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // AJAX 통신은 보내는 프론트와 처리하는 백의 주소가 같아야한다.
+    // localhost:5500 => localhost:8081 => CORS 오류 발생
+    // mvc 는 작업이 서버에서 처리하고 출력까지 한다 => 제작자 입장에서 조작 위험이 적다.
+
+    // rest 는 작업을 서버가 처리한 다음 결과를 보내주면 => 프론트가 결과를 출력한다
+    // => 서버 입장에서는 결과를 신뢰할 수 없다 => 보안이 취약하다.
+
+    // rest 백엔드와 통신하는 프론트의 기술이 AJAX 이다.
+    // 보안을 강화하기 위해
+    //  하드디스크에 저장된 html 을 직접 실행하면 AJAX 가 불가
+    //  프론트 주소와 서버 주소가 다르면 AJAX 가 불가
+  </script>
+</head>
+<body>
+  <!-- /rest2 주소에 value 를 보내면 rest 로 응답한다. -->
+  <form action="http://localhost:8081/backend/rest2" method="get">
+    <input type="number" name="value">
+    <button>제곱하기</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="http://localhost:8081/backend/mvc3" method="post">
+    <input type="number" name="value" value="2">
+    <button>서버로 보내기</button>
+  </form>
+  <!--
+    HTTP 상태 코드
+    200 : 성공
+    400 : 수신 거부 (잘못된 데이터)
+    403 : 권한이 없음
+    404 : not found
+    405 : 메서드가 잘못됨
+    500 : 서버가 수신하여 작업하다가 오류가 발생
+  -->
+</body>
+</html>

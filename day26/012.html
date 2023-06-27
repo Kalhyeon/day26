@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <title>Document</title>
+  <style>
+    #result {width: 200px;}
+  </style>
+  <script>
+    $(document).ready(function() {
+      $('#btn').on('click', function() {
+        const a = {
+          value1: $('#value1').val(),
+          value2: $('#value2').val()
+        }
+        $.ajax({
+          url: 'http://localhost:8081/backend/rest4', method: 'get',
+          data: a,
+          success:function(result) {
+            $('#result').val(`두 수를 더한 결과값은 ${result}입니다.`);
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <input type="text" id="value1" placeholder="첫 번째 더할 값">
+  <input type="text" id="value2" placeholder="두 번째 더할 값">
+  <input type="text" id="result" placeholder="결과" disabled>
+  <hr>
+  <button id="btn">더하기</button>
+</body>
+</html>

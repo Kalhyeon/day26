@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <title>Document</title>
+  <script>
+    $(document).ready(function() {
+      $('#calc').on('click', function() {
+        // JS 로 객체의 서버에 넘길 값을 담아서 $.ajax 의 data 에 적는다.
+        // $.ajax 가 자동으로 urlencoded 형식으로 변환된다.
+        // 예) data: 변수 이름 => name='홍길동'&age=20
+        const params = {
+          value: $('#value').val()
+        }
+        $.ajax({
+          url: 'http://localhost:8081/backend/rest2', method: 'get',
+          data: params,
+          success:function(result) {
+            alert(result);
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <input type="number" id="value" placeholder="숫자 입력...">
+  <button id="calc">제곱하기</button>
+</body>
+</html>
